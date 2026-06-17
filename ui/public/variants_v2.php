@@ -225,18 +225,16 @@ require __DIR__ . "/partials/header.php";
   <h2>Variants</h2>
   <div class="section-divider"></div>
 
-    <h3>Search &amp; filter</h3>
+    <h3>Search & filter</h3>
 
       <form method="get" action="/variants_v2.php" class="variants-filter-form">
 
   <div class="filter-grid">
 
-    <div>
-      <label for="q"><b>Search</b></label>
-      <input id="q" name="q" type="text" value="<?= h($q) ?>"
-        placeholder="gene / disease / study / HGVS / chr:pos..." />
-    </div>
-
+<div>
+  <input id="q" name="q" type="text" value="<?= h($q) ?>"
+    placeholder="gene / disease / study / HGVS / chr:pos..." />
+</div>
     <div>
       <label for="consequence"><b>Consequence</b></label>
       <select id="consequence" name="consequence">

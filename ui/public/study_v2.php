@@ -297,7 +297,7 @@ require __DIR__ . "/partials/header.php";
               <div class="small">No linked variants found for this study.</div>
             <?php else: ?>
 <div class="table-wrap">
-<table class="study-mini-table">
+<table class="study-mini-table study-disease-table">
                 <tr>
                   <th>Disease</th>
                   <th>Category</th>
@@ -306,7 +306,11 @@ require __DIR__ . "/partials/header.php";
                 </tr>
                 <?php foreach ($diseaseSummary as $d): ?>
                   <tr>
-                    <td><a href="/disease_v2.php?id=<?= (int)$d["disease_id"] ?>"><?= h($d["disease_name"]) ?></a></td>
+                    <td title="<?= h($d["disease_name"]) ?>">
+  <a href="/disease_v2.php?id=<?= (int)$d["disease_id"] ?>">
+    <?= h($d["disease_name"]) ?>
+  </a>
+</td>
                     <td><?= h($d["disease_category"] ?? "") ?></td>
                     <td class="small"><?= h($d["disease_ontology_id"] ?? "") ?></td>
                     <td><?= (int)$d["n_variants"] ?></td>
@@ -318,24 +322,6 @@ require __DIR__ . "/partials/header.php";
           </div>
         </div>
 
-        <div class="panel">
-          <div class="card">
-            <h4>Genes in this study</h4>
-            <?php if (!$geneSummary): ?>
-              <div class="small">No linked variants found for this study.</div>
-            <?php else: ?>
-              <div class=table-wrap">
-              <table class="study-mini-table">
-                <tr><th>Gene</th><th>Variants</th></tr>
-                <?php foreach ($geneSummary as $g): ?>
-                  <tr>
-                    <td><a href="/gene_v2.php?q=<?= urlencode($g["gene_symbol"]) ?>"><?= h($g["gene_symbol"]) ?></a></td>
-                    <td><?= (int)$g["n_variants"] ?></td>
-                  </tr>
-                <?php endforeach; ?>
-              </table>
-              </div>
-            <?php endif; ?>
           </div>
         </div>
 
@@ -369,7 +355,11 @@ require __DIR__ . "/partials/header.php";
                   <td><?= h($v["variant_type"] ?? "") ?></td>
                   <td><?= h($v["consequence"] ?? "") ?></td>
                   <td><?= h($v["is_driver"] ?? "") ?></td>
-                  <td><a href="/disease_v2.php?id=<?= (int)$v["disease_id"] ?>"><?= h($v["disease_name"] ?? "") ?></a></td>
+                  <td title="<?= h($v["disease_name"] ?? "") ?>">
+  <a href="/disease_v2.php?id=<?= (int)$v["disease_id"] ?>">
+    <?= h($v["disease_name"] ?? "") ?>
+  </a>
+</td>
                   <td><?= h($v["cell_type_name"] ?? "") ?></td>
                 </tr>
               <?php endforeach; ?>

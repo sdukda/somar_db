@@ -254,7 +254,6 @@ require __DIR__ . "/partials/header.php";
 
   </form>
  
-
   <?php if ($disease): ?>
     <div style="margin-top:16px;">
       <h3><?= h($disease["disease_name"]) ?></h3>
@@ -283,22 +282,21 @@ require __DIR__ . "/partials/header.php";
       </table>
 
       <div class="grid" style="margin-top:14px;">
-        <div class="col-6">
+        <div class="col-12">
           <div class="card">
             <h4>Cell types in this disease</h4>
-
-            <?php if (!$cellTypeBreakdown): ?>
-              <div class="small">No rows yet (check your view / mappings).</div>
-            <?php else: ?>
-              <div class="table-wrap">
-                <table class="disease-mini-table">
-                  <tr>
-                    <th>Cell type</th>
-                    <th class="small">CL ID</th>
-                    <th>Variants</th>
-                    <th>Studies</th>
-                    <th class="small">Notes</th>
-                  </tr>
+<?php if (!$cellTypeBreakdown): ?>
+  <div class="small">No rows yet.</div>
+<?php else: ?>
+  <div class="table-wrap">
+    <table class="disease-celltype-table">
+      <tr>
+        <th>Cell type</th>
+        <th>CL ID</th>
+        <th>Variants</th>
+        <th>Studies</th>
+        <th class="small">Notes</th>
+      </tr>
 
                   <?php foreach ($cellTypeBreakdown as $r): ?>
                     <tr>
@@ -316,86 +314,59 @@ require __DIR__ . "/partials/header.php";
           </div>
         </div>
 
-        <div class="col-6">
-          <div class="card">
-            <h4>Top genes</h4>
-
-            <?php if (!$topGenes): ?>
-              <div class="small">No rows yet.</div>
-            <?php else: ?>
-              <div class="table-wrap">
-              <table class="disease-mini-table">
-                <tr>
-                  <th>Gene</th>
-                  <th>Variants</th>
-                </tr>
-                <?php foreach ($topGenes as $g): ?>
-                  <tr>
-                    <td>
-                      <a href="/gene_v2.php?q=<?= urlencode($g["gene_symbol"]) ?>">
-                        <?= h($g["gene_symbol"]) ?>
-                      </a>
-                    </td>
-                    <td><?= (int)$g["n_variants"] ?></td>
-                  </tr>
-                <?php endforeach; ?>
-              </table>
-            <?php endif; ?>
-
-          </div>
-        </div>
       </div>
 
-      <div class="card" style="margin-top:14px;">
-        <h4>Recent variants (preview)</h4>
+<div class="disease-variants-block">
+  <h4>Recent variants (preview)</h4>
 
-        <?php if (!$variants): ?>
-          <div class="small">No variants found for this disease.</div>
-        <?php else: ?>
-        
-        <div class="table-wrap">
-          <table class="browse-variants-table disease-variants-preview">
-            <tr>
-              <th>Variant ID</th>
-              <th>Study</th>
-              <th>Gene</th>
-              <th>cDNA</th>
-              <th>Protein</th>
-              <th>Type</th>
-              <th>Driver</th>
-              <th>Cell type</th>
-              <th>CL ID</th>
-            </tr>
-            <?php foreach ($variants as $v): ?>
-              <tr>
-                <td>
-                  <a href="/variant_v2.php?id=<?= (int)$v["literature_variant_id"] ?>">
-                    <?= (int)$v["literature_variant_id"] ?>
-                  </a>
-                </td>
-                <td>
-                  <a href="/study_v2.php?id=<?= (int)$v["study_id"] ?>">
-                    <?= h($v["study_name"] ?? "") ?>
-                  </a>
-                </td>
-                <td>
-                  <a href="/gene_v2.php?q=<?= urlencode($v["gene_symbol"]) ?>">
-                    <?= h($v["gene_symbol"]) ?>
-                  </a>
-                </td>
-                <td class="small"><?= h($v["cDNA_HGVS"] ?? "") ?></td>
-                <td class="small"><?= h($v["protein_change"] ?? "") ?></td>
-                <td><?= h($v["variant_type"] ?? "") ?></td>
-                <td><?= h($v["is_driver"] ?? "") ?></td>
-                <td><?= h($v["cell_type_name"] ?? "") ?></td>
-                <td class="small"><?= h($v["cell_type_ontology_id"] ?? "") ?></td>
-              </tr>
-            <?php endforeach; ?>
-          </table>
-          </div>
-        <?php endif; ?>
-      </div>
+  <?php if (!$variants): ?>
+    <div class="small">No variants found for this disease.</div>
+  <?php else: ?>
+
+    <div class="table-wrap">
+      <table class="browse-variants-table disease-variants-preview">
+        <tr>
+          <th>Variant ID</th>
+          <th class="study-col">Study</th>
+          <th>Gene</th>
+          <th>cDNA</th>
+          <th>Protein</th>
+          <th>Type</th>
+          <th>Driver</th>
+          <th>Cell type</th>
+          <th>CL ID</th>
+        </tr>
+        <?php foreach ($variants as $v): ?>
+          <tr>
+            <td>
+              <a href="/variant_v2.php?id=<?= (int)$v["literature_variant_id"] ?>">
+                <?= (int)$v["literature_variant_id"] ?>
+              </a>
+            </td>
+            <td class="study-col" title="<?= h($v["study_name"] ?? "") ?>">
+              <a href="/study_v2.php?id=<?= (int)$v["study_id"] ?>">
+                <?= h($v["study_name"] ?? "") ?>
+              </a>
+            </td>
+            <td>
+              <a href="/gene_v2.php?q=<?= urlencode($v["gene_symbol"]) ?>">
+                <?= h($v["gene_symbol"]) ?>
+              </a>
+            </td>
+            <td class="small"><?= h($v["cDNA_HGVS"] ?? "") ?></td>
+            <td class="small"><?= h($v["protein_change"] ?? "") ?></td>
+            <td><?= h($v["variant_type"] ?? "") ?></td>
+            <td><?= h($v["is_driver"] ?? "") ?></td>
+            <td><?= h($v["cell_type_name"] ?? "") ?></td>
+            <td class="small"><?= h($v["cell_type_ontology_id"] ?? "") ?></td>
+          </tr>
+        <?php endforeach; ?>
+      </table>
     </div>
+
+  <?php endif; ?>
+</div>
+  
     </div> <!-- closes .disease-page-section -->
     </div> <!-- closes the disease detail .card -->
   <?php endif; ?>

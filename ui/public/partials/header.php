@@ -16,8 +16,9 @@
     <div class="brand">
       <img src="/assets/images/ctbmb_logo_col.jpg" alt="" class="brand-logo">
       <div>
-        <div class="brand-title">Autoimmune Somatic Variants Portal</div>
-        <div class="brand-subtitle">Literature-derived driver variants &amp; evidence</div>
+        <div class="brand-title">SOMAR</div>
+        <div class="brand-subtile">Somatic Mutation in Autoimmune Disease Repository</div>
+        <div class="brand-subtitle">(Literature-derived driver variants &amp; evidence)</div>
       </div>
     </div>
 
