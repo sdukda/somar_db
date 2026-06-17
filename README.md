@@ -1,7 +1,9 @@
-**Autoimmune Somatic Variant Database (autoimmune_db)**
+# SOMAR
+## Somatic Mutation in Autoimmune Disease Repository
+### Overview
+SOMAR (Somatic Mutation in Autoimmune Disease Repository) is a curated relational database and web platform developed to collect, standardise and explore literature-derived somatic mutations reported in autoimmune and inflammatory diseases.
 
-**Overview**
-**autoimmune_d**b is a curated relational database and web interface built to collect and explore literature-derived somatic driver variants reported in **autoimmune** and **inflammatory diseases**.
+The repository integrates published evidence and provides a searchable interface for investigating disease-associated somatic variants across studies, genes, diseases and cell types.
 
 
 The project combines:
@@ -13,14 +15,14 @@ The project combines:
 
 The database is intended to support research into autoimmune conditions, inflammatory disorders, and other related somatic disorder.
 
-**Project Goals**
-The primary objectives of this autoimmue database project are:
+### Project Goals
+The primary objectives of SOMAR are:
 -	To provide a** structured, queryable schema** for somatic variants reported in published autoimmune disease literature
 -	To ensure each variant is traceable to its study, disease, cell type and supporting evidence.
 -	To standardize variant descriptions reported across publications
 -	To facilitate exploration by gene, disease, variant and study via a lightweight web interface.
 
-**Repository Structure**
+### Repository Structure
 ```
 autoimmune_db/
 ├── sql/
@@ -128,8 +130,14 @@ This repository is intended for:
 -	Future extension into larger variant knowledgebases
 It is not intended as a production clinical system.
 
-**Citation**
-If this database or schema is referenced in academic work, please cite the associated thesis or publication (to be added).
+### Citation
+If you use SOMAR in your research, please cite:
+
+Dukda S., Kumar M., Calcino A., Schmitz U., Field M.A.
+
+SOMAR: Somatic Mutation in Autoimmune Disease Repository.
+
+James Cook University, Australia.
 
 **Author**
 Sonam Dukda
