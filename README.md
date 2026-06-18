@@ -48,7 +48,7 @@ These migrations are designed to be executed in numeric order and are written to
 Curated seed data is stored in `sql/seeds/' and include core lookup tables, study metadata, curated somatic variant tables, and CSV files derived from manual literature extraction.
 
 Example curated file:
-literature_driver_variants_v1.csv
+`literature_driver_variants_v1.csv`.
 
 These files represent manual curation from published studies and include explicit annotation of the reference genome used in the original paper, lifted coordinates where applicable, variant type and consequence, disease and cell-type context, and supporting evidence notes.
 
