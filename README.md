@@ -33,90 +33,36 @@ autoimmune_db/
 ```
 **Database Design** 
 **Core entities**
-The schema centres on somatic variants, linked to:
--	Genes
--	Diseases (with Disease Ontology identifiers where available)
--	Cell types (with ontology identifiers where available)
--	Studies (PMID, DOI, year)
--	Variant consequences / impact categories
+The SOMAR schema centres on somatic variants and links each curated record to relevant genes, diseases, cell types, studies, and variant consequence or impact categories. Where available, external identifiers such as Disease Ontology and cell ontology terms are included to improve consistency and interoperability.
 
-The design highlights:
--	Consistent links between related records
--	Transparent tracking of data sources
--	Avoidance of duplicate data
--	Clear distinction between reported and derived values
+The database design emphasises consistent relationships between records, transparent tracking of data sources, avoidance of duplicate information, and a clear distinction between values reported directly in publications and values derived during curation.
 
 Entity-relationship diagrams are provided in:
-docs/erd/
+`docs/erd/`.
 
 **Schema Migrations**
-All schema changes are tracked via **ordered SQL migrations** in:
-sql/migrations/
-Each migration is:
--	Idempotent where possible
--	Executed in numeric order
--	Documented through commit history
-This allows the database to be rebuilt from scratch in a reproducible manner.
+All schema changes are tracked through ordered **ordered SQL migrations** in `sql/migrations/`.
+These migrations are designed to be executed in numeric order and are written to be idempotent where possible. Changes are also documented through the repository commit history, allowing the database structure to be rebuilt from scratch in a reproducible manner.
 
 **Seed Data and Curation**
-Curated seed data is stored in:
-sql/seeds/
-This includes:
--	Core lookup tables (genes, diseases, cell types)
--	Study metadata
--	Curated somatic variant tables
--	CSV files derived from manual literature extraction
+Curated seed data is stored in `sql/seeds/' and include core lookup tables, study metadata, curated somatic variant tables, and CSV files derived from manual literature extraction.
 
 Example curated file:
 literature_driver_variants_v1.csv
 
-These files represent **manual curation from published studies**, with explicit annotation of:
--	Reference genome used in the paper
--	Lifted coordinates where applicable
--	Variant type and consequence
--	Disease and cell-type context
--	Evidence notes
+These files represent manual curation from published studies and include explicit annotation of the reference genome used in the original paper, lifted coordinates where applicable, variant type and consequence, disease and cell-type context, and supporting evidence notes.
 
 **Web Interface**
-A lightweight PHP interface is provided to browse and query the database:
--	Genes – variant, disease, and study counts per gene
--	Diseases – disease-centric summaries and variant context
--	Variants – sortable, filterable variant listings
--	Studies – publication-level summaries
-
-The UI is intentionally simple and read-only, designed for:
--	Exploration
--	Verification
+SOMAR includes a lightweight PHP interface for browsing and querying the database. The interface supports gene-level summaries, disease-centric views, sortable variant listings, and publication-level summaries. It is intentionally simple and read-only, with the primary purpose of supporting exploration, verification, and review of curated records.
 
 **Configuration and Security**
-Database credentials are never committed.
--	ui/config/db.php
-    → Safe template committed to GitHub
--	ui/config/db.local.php
-    → Local file containing real credentials (ignored by Git)
-
-This ensures:
--	Reproducibility
--	Security
--	Safe sharing with collaborators
+Database credentials are not committed to the repository. A safe configuration template is provided at `ui/config/db.php`, while local credentials should be stored in `ui/config/db.local.php`, which is ignored by Git. This structure supports reproducibility while protecting sensitive local configuration details and enabling safe sharing with collaborators.
 
 **Reproducibility**
-To recreate the database locally:
--	Create an empty MySQL database
--	Apply migrations in order from sql/migrations/
--	Load seed data from sql/seeds/
--	Configure db.local.php
--	Run the web UI locally (e.g. via Apache or PHP built-in server)
-Exact deployment is intentionally left flexible, as this repository focuses on schema and data provenance, not production hosting.
+The database can be recreated locally by creating an empty MySQL database, applying the migration files in order from `sql/migrations/`, loading seed data from `sql/seeds/`, configuring db.local.php, and running the web interface locally using Apache or the PHP built-in server. Exact deployment is intentionally left flexible because this repository focuses on schema design, curated data provenance, and reproducible database construction rather than production hosting.
 
 **Intended Use**
-This repository is intended for:
--	Academic research
--	Supervisor review
--	Schema inspection
--	Reproducibility assessment
--	Future extension into larger variant knowledgebases
-It is not intended as a production clinical system.
+This repository is intended to support academic research, supervisor review, schema inspection, reproducibility assessment, and future extension into larger somatic variant knowledgebases. It is not intended for clinical decision-making or use as a production clinical system.
 
 ### Citation
 If you use SOMAR in your research, please cite:
