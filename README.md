@@ -3,24 +3,12 @@
 ### Overview
 SOMAR (Somatic Mutation in Autoimmune Disease Repository) is a curated relational database and web platform developed to collect, standardise and explore literature-derived somatic mutations reported in autoimmune and inflammatory diseases.
 
-The repository integrates published evidence and provides a searchable interface for investigating disease-associated somatic variants across studies, genes, diseases and cell types.
+The repository integrates published evidence and provides a searchable interface for investigating disease-associated somatic variants across studies, genes, diseases and cell types.It also incorporates harmonised variants consequence categories, reproducible schema migrations, and seed data to support consistent database construction, curation and future expansion.
 
-
-The project combines:
--	Published literature evidence
--	Manually curated somatic variants
--	Disease, gene, cell-type, and study context
--	Harmonised variant consequence categories
--	Reproducible schema migrations and seed data
-
-The database is intended to support research into disease-associated somatic variants in autoimmune conditions, inflammatory disorders, and related immune-mediated diseases.By linking variants with genes, cell types, diseases, studies and supporting evidence, SOMAR provides a structured resource for investigating the contribution of somatic variation to immune dysregulation and disease pathogenesis.
+The database is intended to support research into disease-associated somatic variants in autoimmune conditions, inflammatory disorders, and related immune-mediated diseases. By linking variants with genes, cell types, diseases, studies and supporting evidence, SOMAR provides a structured resource for investigating the contribution of somatic variation to immune dysregulation and disease pathogenesis.
 
 ### Project Goals
-The primary objectives of SOMAR are:
--	To provide a** structured, queryable schema** for somatic variants reported in published autoimmune disease literature
--	To ensure each variant is traceable to its study, disease, cell type and supporting evidence.
--	To standardize variant descriptions reported across publications
--	To facilitate exploration by gene, disease, variant and study via a lightweight web interface.
+SOMAR aims to provide a structured, queryable, and traceable framework for cataloguing somatic variants reported in published autoimmune disease literature. Each curated variant is linked to its corresponding study, disease context, cell type, and supporting evidence, enabling transparent interpretation of the source data. The project also seeks to standardise variant descriptions across publications and support user-friendly exploration by gene, disease, variant, and study through a lightweight web interface.
 
 ### Repository Structure
 ```
