@@ -13,7 +13,7 @@ The project combines:
 -	Harmonised variant consequence categories
 -	Reproducible schema migrations and seed data
 
-The database is intended to support research into disease-associated somatic variants in autoimmune conditions, inflammatory disorders, and related immune-mediated diseases.
+The database is intended to support research into disease-associated somatic variants in autoimmune conditions, inflammatory disorders, and related immune-mediated diseases.By linking variants with genes, cell types, diseases, studies and supporting evidence, SOMAR provides a structured resource for investigating the contribution of somatic variation to immune dysregulation and disease pathogenesis.
 
 ### Project Goals
 The primary objectives of SOMAR are:
