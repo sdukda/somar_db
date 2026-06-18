@@ -45,7 +45,7 @@ All schema changes are tracked through ordered **ordered SQL migrations** in `sq
 These migrations are designed to be executed in numeric order and are written to be idempotent where possible. Changes are also documented through the repository commit history, allowing the database structure to be rebuilt from scratch in a reproducible manner.
 
 **Seed Data and Curation**
-Curated seed data is stored in `sql/seeds/' and include core lookup tables, study metadata, curated somatic variant tables, and CSV files derived from manual literature extraction.
+Curated seed data is stored in `sql/seeds/` and include core lookup tables, study metadata, curated somatic variant tables, and CSV files derived from manual literature extraction.
 
 Example curated file:
 `literature_driver_variants_v1.csv`.
