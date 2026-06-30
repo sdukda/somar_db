@@ -1,10 +1,10 @@
 ## 08_methods.md
-## Autoimmune Somatic Variant Portal - Methods
+## Somatic Mutation in Autoimmune Disease Repository (SOMAR) - Methods
 
 ## 8. Methods
 ## 8.1 Study Design and System Overview
 
-Autoimmune Somatic Variants Portal was developed as a literature-curated relational database designed to catalogue and organise somatic driver variants reported in the published papers on autoimmune and inflammatory diseases. The system integrates manually curated variant data from peer-reviewed publications with structured metadata, genomic coordinate normalisation, and a web-based query interface.
+Somatic Mutation in Autoimmune Disease Repository (SOMAR) was developed as a literature-curated relational database designed to catalogue and organise somatic driver variants reported in the published papers on autoimmune and inflammatory diseases. The system integrates manually curated variant data from peer-reviewed publications with structured metadata, genomic coordinate normalisation, and a web-based query interface.
 
 The portal was implemented using:
 -	MySQL (relational database backend)
