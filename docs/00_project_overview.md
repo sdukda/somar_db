@@ -1,4 +1,4 @@
-# autoimmune_db — project overview
+# somar_db — project overview
 
 This repository contains:
 - A MySQL schema for a curated autoimmune somatic driver variant knowledgebase
